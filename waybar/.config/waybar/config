@@ -1,0 +1,115 @@
+{
+    "position": "top",
+    "height": 30,
+    "spacing": 8,
+
+    "modules-left": ["wlr/taskbar"],
+    "modules-center": ["mpris"],
+    "modules-right": [
+        "backlight",
+        "pulseaudio",
+        "clock",
+        "network",
+        "memory",
+        "battery",
+	"custom/power"
+    ],
+	"wlr/taskbar": {
+        "format": "{icon}",
+        "icon-size": 13,
+        "icon-theme": "pixora", // Change this if you use a different system icon theme
+        "tooltip-format": "{title}",
+        "on-click": "activate",
+        "on-click-middle": "close",
+        "ignore-list": [
+            "wofi",
+            "rofi"
+        ],
+        "app_ids-mapping": {
+            "firefoxdeveloperedition": "firefox-developer-edition"
+        }
+    },
+	"mpris": {
+        // {status_icon} is the magic variable that changes automatically
+        "format": "<span color='#ff6600'>{status_icon}</span> {artist} - {title}",
+        "format-paused": "<span color='#ff6600'>{status_icon}</span> <span color='#808080'>{artist} - {title}</span>",
+        
+        // Define which icons represent which state
+        "status-icons": {
+            "playing": "󰏤", // Pause icon (since clicking it will pause the track)
+            "paused": "󰐊",  // Play icon (since clicking it will resume)
+            "stopped": "󰓛"  // Stop icon
+        },
+        
+        // Retain your media controls
+        "on-click": "playerctl play-pause",
+        "on-scroll-up": "playerctl next",
+        "on-scroll-down": "playerctl previous",
+        "tooltip": false
+    },
+
+    "backlight": {
+        "format": "<span color='#ff6600'>[BRG]</span> <span color='#ffffff' rise='-1000'>{percent}%</span>",
+        "tooltip": false,
+	"justify": "center"
+    },
+
+    "pulseaudio": {
+        "format": "<span color='#ff6600'>[VOL]</span> <span color='#ffffff' rise='-1000'>{volume}%</span>",
+        "format-muted": "<span color='#ff3300'>[MUTE]</span> muted",
+        "on-click": "pavucontrol",
+        "tooltip": false
+    },
+    
+    "clock": {
+        "format": "<span color='#ff6600'>[TIME]</span> <span color='#ffffff' rise='-1000'>{:%H:%M}</span>",
+        "tooltip": true,
+        "tooltip-format": "<tt>{calendar}</tt>",
+        "calendar": {
+            "mode": "month",
+            "format": {
+                "months": "<span color='#ff6600'><b>{}</b></span>",
+                "days": "<span color='#ffffff'><b>{}</b></span>",
+                "weekdays": "<span color='#ffcc00'><b>{}</b></span>",
+                "today": "<span color='#000000' background='#ff6600'><b>{}</b></span>"
+            }
+        },
+        "actions": {
+            "on-scroll-up": "shift_down",
+            "on-scroll-down": "shift_up"
+        },
+        "on-click": "kitty calcurse"
+    },
+
+    "network": {
+        "format-wifi": "<span color='#ff6600'>[WIFI]</span> <span color='#ffffff' rise='-1000'>{essid}</span>",
+        "format-ethernet": "<span color='#ff6600'>[ETH]</span>",
+        "format-disconnected": "<span color='#ff3300'>[DC]</span> <span color='#ffffff' rise='-1000'>NONE</span>",
+        "tooltip-format": "<span>IP Address: {ipaddr}</span>\n<span>Strength: {signalStrength}%</span>",
+	"on-click": "kitty nmtui"    
+},
+
+    "memory": {
+	"interval": 1,
+	"states": {
+	  "warning": 70,
+	  "critical": 90
+	 },        
+	"format": "<span color='#ff6600'>[MEM]</span> <span rise='-1000'>{used:.2f}</span><span color='#ffffff' rise='-1000'>/{total:.2f} GiB</span>",
+        "tooltip": false,
+	"on-click": "kitty --start-as=maximized btop",
+    },
+
+    "battery": {
+        "format": "<span color='#ff6600'>[BAT]</span> <span color='#ffffff' rise='-1000'>{capacity}%</span>",
+        "format-charging": "<span color='#ff6600'>[CHR]</span> <span color='#ffffff' rise='-1000'>{capacity}%</span>",
+        "tooltip": false
+    },
+
+    "custom/power": {
+	"format": "<span color='#ff3300'>[POW]</span>",
+	"on-click": "~/.config/waybar/powermenu.sh",
+	"tooltip": false
+    }
+
+}

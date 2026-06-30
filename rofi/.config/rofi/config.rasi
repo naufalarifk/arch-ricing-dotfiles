@@ -1,0 +1,123 @@
+
+/* ~/.config/rofi/config.rasi */
+
+configuration {
+    modi: "drun,run,window";
+    show-icons: true;
+    drun-display-format: "{name}";
+    location: 0;
+    disable-history: false;
+    hide-scrollbar: true;
+    display-drun: "   SYSTEM ";
+    display-run: "   EXECUTE ";
+    display-window: " 󱂬  WINDOWS ";
+    sidebar-mode: true;
+    matching: "fuzzy";
+    sort: true;
+    sorting-method: "fzf";
+}
+
+@theme "/dev/null"
+
+* {
+    /* Color Palette matching Hyprland & Kitty */
+    bg-color:           #000000;
+    fg-color:           #00ff41; /* Matrix Green */
+    accent-color:       #ff6600; /* NERV Orange */
+    inactive-border:    #1a3a1a; /* Dark Green */
+    selection-bg:       #003a10; /* Kitty Selection Dark Green */
+    
+    /* Font matching Kitty */
+    font: "Terminess Nerd Font Mono 11";
+    
+    background-color: transparent;
+    text-color: @fg-color;
+}
+
+window {
+    width: 650px;
+    background-color: @bg-color;
+    
+    /* Matches active_border and border_size = 2 */
+    border: 2px;
+    border-color: @accent-color;
+    
+    /* Matches rounding = 0 */
+    border-radius: 0px;
+}
+
+mainbox {
+    padding: 12px;
+    children: [ inputbar, listview, mode-switcher ];
+}
+
+inputbar {
+    /* Separate input with a subtle dark green bottom border */
+    border: 0px 0px 2px 0px;
+    border-color: @inactive-border;
+    children: [ prompt, entry ];
+    padding: 6px;
+    margin: 0px 0px 10px 0px;
+}
+
+prompt {
+    text-color: @accent-color;
+    font: "Terminess Nerd Font Mono Bold 11";
+}
+
+entry {
+    text-color: @fg-color;
+    placeholder: "INPUT COMMAND...";
+    placeholder-color: #003a10;
+}
+
+listview {
+    columns: 1;
+    lines: 8;
+    fixed-height: true;
+    scrollbar: false;
+    cycle: true;
+}
+
+element {
+    padding: 6px;
+    border-radius: 0px; /* Force sharp corners on list items */
+}
+
+element normal.normal {
+    background-color: transparent;
+    text-color: @fg-color;
+}
+
+element selected.normal {
+    /* Highlights items using Kitty's selection color and NERV orange text */
+    background-color: @selection-bg;
+    text-color: @accent-color;
+}
+
+element-text {
+    text-color: inherit;
+}
+
+element-icon {
+    size: 20px;
+    padding: 0px 10px 0px 0px;
+}
+
+mode-switcher {
+    spacing: 0;
+    border: 2px 0px 0px 0px;
+    border-color: @inactive-border;
+}
+
+button {
+    padding: 6px;
+    text-color: @inactive-border;
+    vertical-align: 0.5; 
+    horizontal-align: 0.5;
+}
+
+button selected {
+    background-color: @selection-bg;
+    text-color: @accent-color;
+}

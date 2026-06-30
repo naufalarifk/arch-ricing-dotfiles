@@ -1,0 +1,38 @@
+{
+    "logo": {
+        "source": "~/.config/fastfetch/nerv.txt",
+        "type": "file",
+        "color": {
+            "1": "#ff6600"
+        }
+    },
+    "display": {
+        "color": {
+            "keys": "#ff6600",
+            "title": "#00ff41"
+        }
+    },
+    "modules": [
+	{
+	"type": "title",
+	"key": "User",
+	"format": "{user-name}"
+	},
+        "kernel",
+        "uptime",
+        "packages",
+        "shell",
+        "display",
+        "de",
+        "wm",
+        "terminal",
+        "cpu",
+        "gpu",
+        "memory",
+        "disk",
+        "battery",
+        "locale",
+        "break",
+        "colors"
+    ]
+}

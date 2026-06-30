@@ -1,0 +1,72 @@
+* {
+    font-family: "CozetteVector", monospace;
+    font-size: 13px;
+    border-radius: 0;
+    border: none;
+    min-height: 0;
+}
+
+window#waybar * {
+    -gtk-icon-style: regular;
+}
+
+window#waybar {
+    background: black;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-top: 1px solid #1a3a00;
+    border-bottom: 1px solid #1a3a00;
+}
+
+.modules-left,
+.modules-right {
+    padding: 0 8px;
+}
+
+/* All modules default */
+#mpris,
+#backlight,
+#pulseaudio,
+#clock,
+#network,
+#memory,
+#battery,
+#custom-power {
+    padding: 2px 6px;
+    background: transparent;
+    color: #ffffff;
+}
+
+#memory.warning	  { color: #ff6600; }
+#memory.critical  { color: #ff3300; }
+#battery.warning  { color: #ff6600; }
+#battery.critical { color: #ff3300; }
+
+tooltip {
+    background: #000000;
+    border: 1px solid #00ff41;
+    color: #00ff41;
+    font-family: "JetBrainsMono Nerd Font", monospace;
+}
+
+/* Base style for all open apps */
+#taskbar button {
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    padding: 0 6px;
+    margin: 0 2px;
+    background: transparent;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Hover effect */
+#taskbar button:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Style for the app you are currently using */
+#taskbar button.active {
+    background: rgba(255, 102, 0, 0.2); /* Faint orange background */
+    border-bottom: 2px solid #ff6600; /* Solid orange underline */
+}

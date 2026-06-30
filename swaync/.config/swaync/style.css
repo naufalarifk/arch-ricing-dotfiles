@@ -1,0 +1,86 @@
+/* ~/.config/swaync/style.css */
+
+/* Core definitions and global hardware level styling rules */
+* {
+  font-family: "Terminess Nerd Font Mono";
+  font-size: 11pt;
+  box-shadow: 0 0 0 0 transparent;
+  text-shadow: none;
+}
+
+/* Kill container wrapping constraints */
+.notification-row {
+  border-radius: 0px;
+  background-color: transparent;
+}
+
+/* The actual floating notification layout container box */
+.notification {
+  background-color: #000000;
+  
+  /* Hardcodes your NERV orange border and size = 2 */
+  border: 2px solid #ff6600; 
+  border-radius: 0px;
+  
+  padding: 16px;
+  margin: 6px 10px;
+}
+
+/* Inner elements and text label overrides */
+.notification-content {
+  background-color: transparent;
+  border-radius: 0px;
+  color: #00ff41; /* Matrix Green text fallback */
+}
+
+/* --- THE FIX: FORCED COLOR TARGETING FOR ALL TEXT LINES --- */
+.notification-content label,
+.notification-content .body,
+.body {
+  color: #00ff41 !important; /* Matrix Green body text */
+  background-color: transparent;
+}
+
+.notification-title,
+.notification-content .summary,
+.summary {
+  color: #ff6600 !important; /* NERV Orange header text */
+  font-weight: bold;
+  background-color: transparent;
+}
+
+/* Metadata time formatting blocks */
+.time, .notification-time {
+  color: #003a10 !important; /* Dark green timestamp elements */
+}
+
+/* Application image and thumbnail geometry */
+.notification-default-icon,
+.notification-image,
+.notification-image image {
+  border-radius: 0px;
+}
+
+/* Action button blocks */
+.notification-action {
+  background-color: #003a10;
+  border: 1px solid #1a3a1a;
+  border-radius: 0px;
+  color: #00ff41;
+}
+
+.notification-action:hover {
+  background-color: #1a3a1a;
+  color: #ff6600;
+}
+
+/* Top-right escape buttons */
+.close-button {
+  background-color: transparent;
+  border-radius: 0px;
+  color: #1a3a1a;
+}
+
+.close-button:hover {
+  color: #ff3300;
+}

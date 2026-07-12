@@ -6,5 +6,5 @@
 # Fastfetch
 # -----------------------------------------------------
 if status is-interactive
-fastfetch
+#fastfetch
 end
